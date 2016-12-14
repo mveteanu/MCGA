@@ -1,0 +1,25 @@
+mcga.pas Unitul principal al acestei biblioteci
+viewbmp.pas Unit pentru gestionarea formatului grafic .BMP
+gif.pas Unit pentru gestionarea formatului grafic .GIF
+fli.pas Unit pentru play-erea fisierelor .FLI
+mouse.pas Unit pentru lucrul cu mouse-ul
+math.pas Unit cu functii si proceduri matematice
+sb.pas Unit cu functii si proceduri pentru SoundBlaster
+palyhsc.pas Unit pentru play-erea fisierelor .HSC
+CPUTYPE.PAS  Unit cu functii pentru detectare CPU
+EMS.PAS      Unit pentru lucrul cu EMS
+FONTGRAF.PAS Unit pentru scrierea de texte .CHR pe directii arbitrare
+HARDWARE.PAS Unit cu diverse fn. pt. controlul hardwareului
+LBM.PAS      Unit pentru citire fisiere LBM
+MCGA142.PAS  Unitul MCGA versiunea veche cu majoritatea procedurilor in PASCAL
+MCGADPMI.PAS Unitul MCGA pentru lucrul in modul protejat
+MXIC.PAS     Unit pentru grafica pe placi MXIC
+PCX.PAS      Unit pentru citire fisiere PCX
+PLAYHSC.PAS  Unit pentru play-erea in background a .HSC-urilor
+UKBD.PAS     Unit pentru simpla utilizare a tastaturii
+UMB.PAS      Unit cu fn. pentru accesarea blocurilor UMB
+XMS.PAS      Unit pentru lucrul cu XMS
+HSCOBJ.OBJ   Folosit de PLAYHSC.PAS
+DESCRIPT.ION Fisier cu descrieri
+SBCONST.INC  Folosit de SB.PAS
+TRIAL.INC    Mesaj trial

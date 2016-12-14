@@ -1,0 +1,33 @@
+Program ZoomOut_Demo;
+uses MCGA,ViewBMP,Crt;
+var f  : file;
+    scr: VirtualScreen;
+    pal: PaletteType;
+    x,y: integer;
+    po : pointer;
+begin
+  SetMcga;
+  SetUpVirtual(scr);
+  LoadBMPFile(0,0,'..\mcga-img\AMBER.BMP',scr,pal);
+  SetAllPal(pal);
+  SetVisualScreen(scr);ReadLn;
+  GetMem(po,GetIcoSize(0,0,160,100));
+  ZoomOut(scr,vgascreen,000,000,2,2);GetIco(0,0,160,100,po);
+  PutFrame(160,000,po);PutFrame(000,100,po);
+  PutFrame(160,100,po);PutFrame(080,050,po);
+  FreeMem(po,GetIcoSize(0,0,160,100));ReadLn;
+  GetMem(po,GetIcoSize(0,0,80,50));
+  ZoomOut(scr,vgascreen,080,050,4,4);GetIco(80,50,160,100,po);
+  PutFrame(160,050,po);PutFrame(080,100,po);
+  PutFrame(160,100,po);PutFrame(120,075,po);
+  FreeMem(po,GetIcoSize(80,50,160,100));ReadLn;
+  ZoomOut(scr,vgascreen,080,000,2,4);
+  ZoomOut(scr,vgascreen,080,150,2,4);
+  GetMem(po,GetIcoSize(0,0,80,200));
+  ZoomOut(scr,vgascreen,000,000,4,1);GetIco(0,0,80,200,po);
+  PutFrame(240,0,po);FreeMem(po,GetIcoSize(0,0,80,200));ReadLn;
+  SetVisualScreen(scr);
+  SetColor(255);Print(23,12,'(c) VMA soft');Readln;
+  ShutDownVirtual(scr);
+  SetText;
+end.

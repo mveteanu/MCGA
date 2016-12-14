@@ -1,0 +1,232 @@
+
+                      ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+                      ³              MCGA             ³
+                      ³      (c) VMA soft 1996        ³
+                      ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+
+
+
+  Biblioteca MCGA este o colectie de unituri Pascal pentru realizarea de
+demonstratii grafice si jocuri in modul BIOS 13H ( 320x200x256 ).
+  Viteza foarte mare a programelor de animatie realizate in acest mod si
+numarul suficient de mare de culori ( 256 ) a atras atentia tuturor celor
+ce utilizeaza si programeaza PC-urile : fapt dovedit de miile de jocuri
+aparute intr-un timp relativ scurt ce folosesc grafica 320x200x256.
+  Incepind cu versiunea 1.42 a fost introdus si suport pentru SoundBlaster.
+Acum utilizatorul are posibilitatea sa realizeze demonstratii avind fond
+muzical.Tot incepind cu aceasta versiune au mai fost incluse si o serie de
+unituri suplimentare pentru controlul tastaturii,mouse-ului,microprocesorului
+si memoriei expandate.Scopul acestor unituri suplimentare este acela de al
+ajuta pe cel care realizeaza demo-uri sau jocuri sa manevreze mai usor
+toate posibilitatile oferite de aceste periferice.
+  Daca doriti sa realizati programe profesionale de grafica atunci folositi
+cu incredere biblioteca MCGA realizata de Marian Adrian Veteanu.
+
+  Aceata cuprinde urmatoarele unituri:
+
+        MCGA.PAS     - Unitul principal al acestei biblioteci
+        VIEWBMP.PAS  - Unit pentru gestionarea formatului grafic .BMP
+        GIF.PAS      - Unit pentru gestionarea formatului grafic .GIF
+        FLI.PAS      - Unit pentru play-erea fisierelor .FLI
+        MOUSE.PAS    - Unit pentru lucrul cu mouse-ul
+        MATH.PAS     - Unit cu functii si proceduri matematice
+        SB.PAS       - Unit cu functii si proceduri pentru SoundBlaster
+        PALYHSC.PAS  - Unit pentru play-erea fisierelor .HSC
+        CPUTYPE.PAS  - Unit cu functii pentru detectare CPU
+        EMS.PAS      - Unit pentru lucrul cu EMS
+        FONTGRAF.PAS - Unit pentru scrierea de texte .CHR pe directii arbitrare
+        HARDWARE.PAS - Unit cu diverse fn. pt. controlul hardwareului
+        LBM.PAS      - Unit pentru citire fisiere LBM
+        MCGA142.PAS  - Unitul MCGA versiunea veche cu majoritatea procedurilor in PASCAL
+        MCGADPMI.PAS - Unitul MCGA pentru lucrul in modul protejat
+        MXIC.PAS     - Unit pentru grafica pe placi MXIC
+        PCX.PAS      - Unit pentru citire fisiere PCX
+        PLAYHSC.PAS  - Unit pentru play-erea in background a .HSC-urilor
+        UKBD.PAS     - Unit pentru simpla utilizare a tastaturii
+        UMB.PAS      - Unit cu fn. pentru accesarea blocurilor UMB
+        XMS.PAS      - Unit pentru lucrul cu XMS
+
+
+  Procedurile din unitul MCGA sunt cele mai numeroase, de aceea ele sunt
+prezentate in continuare grupate pe categorii:
+
+
+ Functii pentru initializarea modurilor video, efectuarea de setari,etc
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Procedure SetMCGA;
+Procedure SetText;
+Function  GetVideoMode:byte;
+Procedure VideoScreenOn;
+Procedure VideoScreenOff;
+Procedure VideoEnable;
+Procedure VideoDisable;
+Procedure Split(Row:Integer);
+Procedure WaitRetrace;
+Function  FileExist(FileName : string): Boolean;
+
+
+
+ Functii pentru crearea si manipularea screen-urilor virtuale
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Procedure SetActiveScreen(scr : VirtualScreen);
+Procedure SetVisualScreen(scr : VirtualScreen);
+Procedure Flip(source,dest : Word);
+Procedure FlipTransp(source,dest : Word);
+Procedure SetUpVirtual(var VirScr : VirtualScreen);
+Procedure ShutDownVirtual(var VirScr : VirtualScreen);
+Function  ScreenAddr(VS : VirtualScreen):Word;
+Procedure SaveScreen(FileName : string ; scr : VirtualScreen);
+Procedure LoadScreen(FileName : string ; scr : VirtualScreen);
+
+
+
+
+ Functii pentru manipularea paletei de culori
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Procedure SetPal(Col,R,G,B : Byte);
+Procedure GetPal(Col : Byte; Var R,G,B : Byte);
+Procedure SetAllPal( Palet : PaletteType);
+Procedure GetAllPal( var Palet : PaletteType);
+Procedure LoadPal (FileName : string ; var DAC : PaletteType);
+Procedure LoadVisualPal (FileName : string);
+Procedure SavePal (FileName : string ; DAC : PaletteType);
+Procedure RotatePal(var OurPal:palettetype;count1,count2:byte);
+Procedure RotatePalBack(var OurPal:palettetype;count1,count2:byte);
+Procedure RotateVisualPal(count1,count2:byte);
+Procedure RotateVisualPalBack(count1,count2:byte);
+Procedure FadeDown(rv,gv,bv:byte);
+Procedure FadeUp(pall2:PaletteType);
+Procedure SetBWZone(zona:byte);
+Procedure CreateUniformPal(var pal:palettetype);
+Procedure CreateBWPal(var pal:palettetype);
+Procedure HSI2RGB(H,S,I:Real;var R,G,B:byte);
+
+
+
+
+
+  Functii pentru primitive grafice
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{ Aceste functii lucreaza in screen-ul activ stabilit de SetActiveScreen }
+Procedure Cls (Col : Byte);
+Procedure Putpixel (X,Y : Integer; Col : Byte);
+Function  GetPixel (X,Y : Integer) :  Byte;
+Procedure Line(a,b,c,d:integer;col:byte);
+Procedure BLine(x1, y1, x2, y2 : integer; color : byte);
+Procedure HLine (x1,x2,y:word;col:byte);
+Procedure VLine (y1,y2,x:word;col:byte);
+Procedure FunnyLine(a,b,c,d:integer;count1,count2:byte);
+Procedure Rectangle(x1,y1,x2,y2:integer);
+Procedure Bar(x1,y1,x2,y2:word;col:byte);
+Procedure DrawPoly(nrp:word;var puncte);
+Procedure FillPolygon(Size:Integer; var P1; C:Byte);
+Procedure FillPoly(x1,y1,x2,y2,x3,y3,x4,y4:integer;color:byte);
+Procedure Fill(X,Y:Integer; C:Byte);
+Procedure Flood(X,Y:Integer; C,C2:Byte);
+Procedure Ellipse(x,y:word;a,b:longint;col:byte);
+Procedure GEllipse(x,y:word;a,b:longint;col:byte);
+Procedure FillEllipse(x,y:word;a,b:longint;col:byte);
+Procedure Circle(x,y,r:word);
+Procedure GCircle(x,y,r:word;col:byte);
+Procedure FillCircle(x,y,r:word;col:byte);
+Function  GetMaxX:integer;
+Function  GetMaxY:integer;
+Function  GetMaxColor:byte;
+Procedure SetColor(c:byte);
+Function  GetColor:byte;
+Procedure MoveTo(x,y:integer);
+Procedure MoveRel(dx,dy:integer);
+Function  GetX:integer;
+Function  GetY:integer;
+Procedure LineTo(x,y:integer);
+Procedure LineRel(dx,dy:integer);
+
+
+
+ Functii pentru manipularea sprite-urilor
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{ Majoritatea aceste functii lucreaza in screen-ul activ }
+Procedure LoadIcon(FileName : string ;poin:pointer);
+Procedure SaveIcon(FileName : string ;poin:pointer);
+Function  GetIcoSize(x,y,z,t:word):word;
+Procedure PutIco(X,Y:Word;sprt:pointer);
+Procedure PutFrame(X,Y:Word;sprt:pointer);
+Procedure PutMask(X,Y:Word;sprt:pointer);
+Procedure Mask(imag,masca:pointer);
+Procedure GetIco(X,Y,Z,T:Word;sprt:pointer);
+Procedure ScreenTrans (x,y,lungime,inaltime:word;vaddrwhere,vaddrfrom:word);
+Procedure ScreenTransTransp (x,y,lungime,inaltime:word;vaddrwhere,vaddrfrom:word);
+Procedure QuickScreenTrans (x,y,lungime,inaltime:word;vaddrwhere,vaddrfrom:word);
+
+
+
+
+ Functii pentru scroll-uri cu box-uri
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Procedure SHLBox(x1,y1,x2,y2:integer;col:byte);
+Procedure SHRBox(x1,y1,x2,y2:integer;col:byte);
+Procedure SHLBox2(x1,y1,x2,y2:integer);
+Procedure SHRBox2(x1,y1,x2,y2:integer);
+Procedure ROLBox(x1,y1,x2,y2:integer);
+Procedure RORBox(x1,y1,x2,y2:integer);
+Procedure SHUBox2(x1,y1,x2,y2:integer);
+Procedure SHDBox2(x1,y1,x2,y2:integer);
+Procedure SHUBox(x1,y1,x2,y2:integer;col:byte);
+Procedure SHDBox(x1,y1,x2,y2:integer;col:byte);
+Procedure ScreenScrollUp(where1,where2,lin1,lin2:word);
+Procedure ResetScrScrollUp(sst:word);
+
+
+
+ Functii pentru lucrul cu fonturi, afisare mesaje sau scroll texte
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Procedure CharHeight(B:Byte);
+Procedure WriteChar(x,y:integer;ch:char);
+Procedure PrintAt(x,y:byte);
+Procedure Advance;
+Procedure PrintC(a:char);
+Procedure PrintS(s:string);
+Procedure PrintN(n:integer);
+Procedure Print(x,y:integer;s:string);
+Procedure LoadFont( filename : string );
+Procedure FreeFont;
+Procedure OutTextXY(x,y,fspace : integer ; msg : string);
+Procedure SetScroll(x1,x2,y:integer;fontgrop:byte;fontciup:boolean;msg:string);
+Procedure SetScrollStyle( FS,FG:integer;FC:boolean);
+Procedure SHLText(x1,x2,y:integer ; msg : string);
+Procedure SHRText(x1,x2,y:integer ; msg : string);
+Procedure SHLTextOnce(nrf:byte);
+Procedure SHRTextOnce(nrf:byte);
+Procedure ResetScroll(nrf:byte);
+
+
+ Functii pentru rescalari
+ ~~~~~~~~~~~~~~~~~~~~~~~~
+
+Procedure ZoomOut(scr1,scr2 : virtualscreen; x1,y1:word;scarax,scaray:byte);
+Procedure ZoomIn (scr1,scr2 : virtualscreen; x1,y1:word;scarax,scaray:byte);
+Procedure Rescale(scr1:virtualscreen;xx1,yy1,xx2,yy2:word;scr2:virtualscreen;x1,y1,x2,y2:word);
+
+
+ Functii pentru efecte speciale si diverse prelucrari ale imaginilor
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Procedure Morph(scr:virtualscreen;pal:palettetype;modul:byte;nrp:word);
+Procedure SphericalProjection(scr1,scr2:virtualscreen;raza:byte);
+Procedure TriangleProjection(scr1,scr2:virtualscreen;scara,panta:real;modul:byte);
+Procedure Fog(x1,y1,x2,y2:word);
+Procedure CreateBWScreen(scrsursa:virtualscreen;palsursa:palettetype;var scrdest:virtualscreen);
+Procedure MediaScreen(scr1,scr2,scr:virtualscreen;nrp,i1,i2:byte);
+Procedure MediaPal(var pal1,pal2,pal:palettetype;nrp,i1,i2:byte);
+Procedure ChangeScreenPal(scr1:virtualscreen;pal1:palettetype;scr2:virtualscreen;pal2:palettetype);
+
+
+

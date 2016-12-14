@@ -1,0 +1,24 @@
+
+                      ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+                      ³              MCGA             ³
+                      ³     c) VMA soft 1996,1997     ³
+                      ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+
+
+
+  Biblioteca MCGA este o colectie de unituri Pascal pentru realizarea de
+demonstratii grafice si jocuri in modul BIOS 13H ( 320x200x256 ).
+  Viteza foarte mare a programelor de animatie realizate in acest mod si
+numarul suficient de mare de culori ( 256 ) a atras atentia tuturor celor
+ce utilizeaza si programeaza PC-urile : fapt dovedit de miile de jocuri
+aparute intr-un timp relativ scurt ce folosesc grafica 320x200x256.
+  Incepind cu versiunea 1.42 a fost introdus si suport pentru SoundBlaster.
+Acum utilizatorul are posibilitatea sa realizeze demonstratii avind fond
+muzical.Tot incepind cu aceasta versiune au mai fost incluse si o serie de
+unituri suplimentare pentru controlul tastaturii,mouse-ului,microprocesorului
+si memoriei expandate.Scopul acestor unituri suplimentare este acela de al
+ajuta pe cel care realizeaza demo-uri sau jocuri sa manevreze mai usor
+toate posibilitatile oferite de aceste periferice.
+  Daca doriti sa realizati programe profesionale de grafica atunci folositi
+cu incredere biblioteca MCGA realizata de Marian Adrian Veteanu.

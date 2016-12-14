@@ -1,0 +1,31 @@
+Program ZoomOut_Demo;
+uses MCGA,ViewBMP,Crt;
+var f  : file;
+    scr: VirtualScreen;
+    pal: PaletteType;
+    x,y: integer;
+begin
+  SetMcga;
+  SetUpVirtual(scr);
+  LoadBMPFile(0,0,'..\mcga-img\AMBER.BMP',scr,pal);
+  SetAllPal(pal);
+  SetVisualScreen(scr);ReadLn;
+  ZoomOut(scr,vgascreen,000,000,2,2);
+  ZoomOut(scr,vgascreen,160,000,2,2);
+  ZoomOut(scr,vgascreen,000,100,2,2);
+  ZoomOut(scr,vgascreen,160,100,2,2);
+  ZoomOut(scr,vgascreen,080,050,2,2);ReadLn;
+  ZoomOut(scr,vgascreen,080,050,4,4);
+  ZoomOut(scr,vgascreen,160,050,4,4);
+  ZoomOut(scr,vgascreen,080,100,4,4);
+  ZoomOut(scr,vgascreen,160,100,4,4);
+  ZoomOut(scr,vgascreen,120,075,4,4);ReadLn;
+  ZoomOut(scr,vgascreen,080,000,2,4);
+  ZoomOut(scr,vgascreen,080,150,2,4);
+  ZoomOut(scr,vgascreen,000,000,4,1);
+  ZoomOut(scr,vgascreen,240,000,4,1);ReadLn;
+  SetVisualScreen(scr);
+  SetColor(255);Print(23,12,'(c) VMA soft');Readln;
+  ShutDownVirtual(scr);
+  SetText;
+end.
