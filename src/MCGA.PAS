@@ -15,6 +15,8 @@
     ³   biblioteca are suport si pentru grafica SVGA cat si pentru       º
     ³   utilizarea placii de sunet, a EMS, a XMS, etc.                   º
     ³                                                                    º
+    ³   Aceasta librarie contine fragmente de cod din tutorialele PC-GPE º	
+    ³                                                                    º
     ³   Multumesc lui Marian Olteanu pentru optimizarea unor proceduri   º
     ³   din acest unit                                                   º
     ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
