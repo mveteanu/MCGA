@@ -55,7 +55,11 @@ The source code of MCGA library is mainly located in [src/MCGA.PAS](src/MCGA.PAS
 ![MCGA](img/mcga30.png)
 ![MCGA](img/mcga31.png)
 
-Credits: The MCGA library uses partial code from PC-GPE and other unknown sources.
+
+Credits
+-------
+
+The MCGA library uses partial code from PC-GPE and other unknown sources.
 Thanks also to Marian Olteanu for contributing and doing some x386 optimizations.
 
 ![Analytics](https://ga-beacon.appspot.com/UA-2402433-6/beacon.en.html)
