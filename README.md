@@ -17,11 +17,13 @@ Features
 - sprite support
 - pallete effects (rotate pallete, etc.)
 
+Screencast
+----------
 
-Source code
+- [http://www.vmasoft.net/mcga.html](http://www.vmasoft.net/mcga.html)
+
+Screenshots
 -----------
-
-The source code of MCGA library is mainly located in [src/MCGA.PAS](src/MCGA.PAS) unit.
 
 ![MCGA](img/mcga01.png)
 ![MCGA](img/mcga02.png)
@@ -54,6 +56,12 @@ The source code of MCGA library is mainly located in [src/MCGA.PAS](src/MCGA.PAS
 ![MCGA](img/mcga29.png)
 ![MCGA](img/mcga30.png)
 ![MCGA](img/mcga31.png)
+
+
+Source code
+-----------
+
+The source code of MCGA library is mainly located in [src/MCGA.PAS](src/MCGA.PAS) unit.
 
 
 Credits
